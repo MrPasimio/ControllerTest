@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
+    //[SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
     [SerializeField] private CharacterController controller;
@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    /*public void OnJump(InputAction.CallbackContext context)
     {
         jumped = context.ReadValue<bool>();
         jumped = context.action.triggered;
-    }
+    }*/
 
     void Update()
     {
@@ -49,10 +49,10 @@ public class PlayerController : MonoBehaviour
       
 
         // Changes the height position of the player..
-        if (jumped && groundedPlayer)
+        /*if (jumped && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
+        }*/
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
